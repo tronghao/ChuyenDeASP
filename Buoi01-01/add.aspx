@@ -1,14 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="add.aspx.cs" Inherits="add" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/template.master" CodeFile="add.aspx.cs" Inherits="add" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Cộng 2 số</title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div style="padding: 20px">
         <asp:Label ID="Label1" runat="server" Text="Nhập a:"></asp:Label>
         <asp:TextBox ID="txtA" runat="server"></asp:TextBox>
         <br />
@@ -20,9 +13,10 @@
 &nbsp;<asp:Button ID="btnTru" runat="server" OnClick="btnTru_Click" Text="Trừ" />
 &nbsp;<asp:Button ID="btnNhan" runat="server" OnClick="btnNhan_Click" Text="Nhân" />
 &nbsp;<asp:Button ID="btnChia" runat="server" OnClick="btnChia_Click" Text="Chia" />
-    </div>
-        <br />
+   
+        <br /> <br />
         <asp:Label ID="lbKQ" runat="server"></asp:Label>
-    </form>
-</body>
-</html>
+        <br />
+        <br />
+     </div>
+</asp:Content>
