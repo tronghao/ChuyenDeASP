@@ -21,6 +21,9 @@ public partial class them_cau_hoi : System.Web.UI.Page
         nguoidung_table = connect.LayBang(sql);
         gvData.DataSource = nguoidung_table;
         gvData.DataBind();
+
+        rpt.DataSource = nguoidung_table;
+        rpt.DataBind();
     }
 
     protected void btnThem_Click(object sender, EventArgs e)
