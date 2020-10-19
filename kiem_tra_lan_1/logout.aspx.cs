@@ -13,7 +13,7 @@ public partial class logout : System.Web.UI.Page
         {
             Session["user"] = null;
             Session["id"] = null;
-            Session["quyen"] = null;
+            Session["google"] = null;
             Response.Redirect("Default.aspx");
         }
     }

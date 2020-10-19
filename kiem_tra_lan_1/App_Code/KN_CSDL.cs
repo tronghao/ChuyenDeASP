@@ -15,7 +15,7 @@ public class KN_CSDL
     public KN_CSDL()
     {
         sqlketnoi = new SqlConnection();
-        string chuoiketnoi = "Data Source=.;Initial Catalog=kt;Integrated Security=True";
+        string chuoiketnoi = @"Data Source=DG6GI3E1598CP8F\SQLEXPRESS;Initial Catalog=kt;Integrated Security=True";
         sqlketnoi.ConnectionString = chuoiketnoi;
         sqllenh = new SqlCommand();
     }
