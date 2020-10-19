@@ -11,6 +11,8 @@ public partial class them_cau_hoi : System.Web.UI.Page
     KN_CSDL connect = new KN_CSDL();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["user"] == null)
+            Response.Redirect("login.aspx");
         String sql = "select * from tbl_cau_hoi";
         DataTable nguoidung_table = new DataTable();
         nguoidung_table = connect.LayBang(sql);
