@@ -36,27 +36,47 @@ public partial class thongtin : System.Web.UI.Page
         if (dt.Rows[0][4].ToString() != "")
             sms += "<img src='" + dt.Rows[0][4].ToString() + "' width='150'> <br/>";
         else sms += "<img src='https://static.thenounproject.com/png/55393-200.png' width='150'> <br/>"; 
-        sms += "Tên Tài khoản: ";
-        sms += dt.Rows[0][1].ToString() + "<br/>"; 
+        sms += @" <table class='table table-striped'>
+                    <tbody> ";
+        sms += @"<tr>
+                        <td> Tên Tài khoản:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][1].ToString() + "</td></tr>";
 
-        sms += "Email: ";
-        sms += dt.Rows[0][3].ToString() + "<br/>"; 
+        sms += @"<tr>
+                        <td> Email:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][3].ToString() + "</td></tr>";
 
-        sms += "Giới tính: ";
-        sms += dt.Rows[0][5].ToString() + "<br/>"; 
+        sms += @"<tr>
+                        <td> Giới tính:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][5].ToString() + "</td></tr>";
 
-        sms += "Loại trình duyệt: ";
-        sms += dt.Rows[0][6].ToString() + "<br/>"; 
+        sms += @"<tr>
+                        <td> Loại trình duyệt:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][6].ToString() + "</td></tr>";
 
-        sms += "ip: ";
-        sms += dt.Rows[0][7].ToString() + "<br/>"; 
+        sms += @"<tr>
+                        <td> ip:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][7].ToString() + "</td></tr>";
 
-        sms += "Hostname: ";
-        sms += dt.Rows[0][8].ToString() + "<br/>"; 
+        sms += @"<tr>
+                        <td> Hostname:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][8].ToString() + "</td></tr>";
 
-        sms += "Thời gian truy cập: ";
-        sms += dt.Rows[0][9].ToString() + "<br/>";
+        sms += @"<tr>
+                        <td> Thời gian truy cập:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][9].ToString() + "</td></tr>";  
 
+        sms += @"                      
+                    </tbody>
+                  </table>
+        ";
         ltr.Text = sms;
 
     }
@@ -75,26 +95,47 @@ public partial class thongtin : System.Web.UI.Page
             sms += "<img src='" + dt.Rows[0][4].ToString() + "' width='150'> <br/>";
         else sms += "<img src='https://static.thenounproject.com/png/55393-200.png' width='150'> <br/>";
 
-        sms += "Google id: ";
-        sms += dt.Rows[0][10].ToString() + "<br/>";
+        sms += @" <table class='table table-striped'>
+                    <tbody> ";
+        sms += @"<tr>
+                        <td> Google id:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][10].ToString() + "</td></tr>";
 
-        sms += "Email: ";
-        sms += dt.Rows[0][3].ToString() + "<br/>";
+        sms += @"<tr>
+                        <td> Email:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][3].ToString() + "</td></tr>";
 
-        sms += "Giới tính: ";
-        sms += dt.Rows[0][5].ToString() + "<br/>";
+        sms += @"<tr>
+                        <td> Giới tính:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][5].ToString() + "</td></tr>";
 
-        sms += "Loại trình duyệt: ";
-        sms += dt.Rows[0][6].ToString() + "<br/>";
+        sms += @"<tr>
+                        <td> Loại trình duyệt:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][6].ToString() + "</td></tr>";
 
-        sms += "ip: ";
-        sms += dt.Rows[0][7].ToString() + "<br/>";
+        sms += @"<tr>
+                        <td> ip:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][7].ToString() + "</td></tr>";
 
-        sms += "Hostname: ";
-        sms += dt.Rows[0][8].ToString() + "<br/>";
+        sms += @"<tr>
+                        <td> Hostname:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][8].ToString() + "</td></tr>";
 
-        sms += "Thời gian truy cập: ";
-        sms += dt.Rows[0][9].ToString() + "<br/>";
+        sms += @"<tr>
+                        <td> Thời gian truy cập:</td>
+                       ";
+        sms += "<td>" + dt.Rows[0][9].ToString() + "</td></tr>";
+
+        sms += @"                      
+                    </tbody>
+                  </table>
+        ";
 
         ltr.Text = sms;
     }
