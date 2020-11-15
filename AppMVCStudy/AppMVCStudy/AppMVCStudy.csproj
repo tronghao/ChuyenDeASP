@@ -161,36 +161,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CategoryOfProductController.cs" />
+    <Compile Include="Controllers\DamioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CategoryOfProduct.cs">
-      <DependentUpon>ProductDBContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Product.cs">
-      <DependentUpon>ProductDBContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProductDBContext.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductDBContext.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProductDBContext.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductDBContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProductDBContext.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductDBContext.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -202,23 +180,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\ProductDBContext.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ProductDBContext.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ProductDBContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProductDBContext.edmx</DependentUpon>
-      <LastGenOutput>ProductDBContext.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ProductDBContext.edmx.diagram">
-      <DependentUpon>ProductDBContext.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ProductDBContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProductDBContext.edmx</DependentUpon>
-      <LastGenOutput>ProductDBContext.cs</LastGenOutput>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -269,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Damio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
