@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="./common.master" AutoEventWireup="true" CodeFile="tao_tai_khoan.aspx.cs" Inherits="tao_tai_khoan" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="common.master" AutoEventWireup="true" CodeFile="tao_tai_khoan.aspx.cs" Inherits="tao_tai_khoan" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
@@ -61,7 +61,25 @@
         </td>
     </tr>
 </table>
+    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+        <HeaderTemplate>  
+            <table style="border:1px solid #0000FF; width:500px" cellpadding="0">  
+            <tr style="background-color:#FF6600; color:#000000; font-size: large; font-weight: bold;">  
+                <td>  <b>Tài khoản</b> </td>  
+                <td>  <b>Mật khẩu</b>  </td> 
+            </tr>
+         </HeaderTemplate>  
+        <ItemTemplate>
+            <tr>
+                <td><%# Eval("ten_tai_khoan") %></td>
+               <td><%#  Eval("mat_khau") %></td>
+            </tr>
+        </ItemTemplate>
+        
+    </asp:Repeater>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BD_LAI_XE_A1ConnectionString %>" SelectCommand="SELECT * FROM [tbl_nguoi_dung]"></asp:SqlDataSource>
 <br />
+   
     <asp:GridView ID="gvUser" runat="server" UseAccessibleHeader="true" CssClass="table table-condensed table-hover" OnRowDeleting="gvUser_RowDeleting" OnSelectedIndexChanged="gvUser_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ShowSelectButton="True" />

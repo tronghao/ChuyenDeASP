@@ -60,4 +60,14 @@ public class KN_CSDL
         this.Dongketnoi();
         return bang;
     }
+
+    public DataSet LayBang2(string str)
+    {
+        this.Moketnoi();
+        SqlDataAdapter bodocghi = new SqlDataAdapter(str, sqlketnoi);
+        DataSet bang = new DataSet();
+        bodocghi.Fill(bang);
+        this.Dongketnoi();
+        return bang;
+    }
 }

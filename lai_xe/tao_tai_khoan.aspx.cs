@@ -27,6 +27,7 @@ public partial class tao_tai_khoan : System.Web.UI.Page
         nguoidung_table = connect.LayBang(sql);
         gvUser.DataSource = nguoidung_table;
         gvUser.DataBind();
+
     }
 
     public void tao()
@@ -108,7 +109,7 @@ public partial class tao_tai_khoan : System.Web.UI.Page
         txtTenTaiKhoan.Text = row.Cells[2].Text;
         txtMatKhau.Text = row.Cells[3].Text;
         
-        capNhat();
+        
     }
 
     protected void btnHuy_Click(object sender, EventArgs e)
