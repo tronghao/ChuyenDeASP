@@ -14,18 +14,54 @@
        
     </asp:ContentPlaceHolder>
 </head>
+<style>
+    .background-nav { background-color: #f8f9fa }
+    .h-80 { height:80px }
+    .pad-nav { padding: .5rem 1rem; }
+    .nav-custom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    ul.nav-ul {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        display: flex;
+        list-style-type: none;
+    }
+    ul.nav-ul li {
+        margin-right: 2.2rem;
+        color: blue;
+        font-weight: 700;
+        margin-top: .9rem;
+    }
+</style>
 <body>
     <form id="form1" runat="server">
+    <div class="container-fluid background-nav h-80 pad-nav mb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="nav-custom">
+                        <img src="./img/logo.png" width="200" height="50"/>
+                        <ul class="nav-ul">
+                            <li>Trang chủ</li>
+                            <li>Đăng nhập</li>
+                        </ul>
+                        
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <img src="./img/banner.jpg" style="width: 100%"/>
-            </div>
-            <div class="col-md-12">
-                <ul>
+                <%--<ul>
                     <li>Trang chủ</li>
                     <li>Bài thi</li>
-                </ul>
+                </ul>--%>
             </div>
         </div>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
