@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="505c122c-02c9-4a2b-88f7-085cab8be0d1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/App_Code/KN_CSDL.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App_Code/KN_CSDL.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.config" beforeDir="false" afterPath="$PROJECT_DIR$/Web.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/download.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/download.aspx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/excel/du_lieu.xls" beforeDir="false" afterPath="$PROJECT_DIR$/excel/du_lieu.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/13112020_022020_PM_Muc tieu.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/13112020_022134_PM_Muc tieu.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/13112020_023923_PM_Muc tieu.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/13112020_024016_PM_Muc tieu.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/13112020_043803_PM_Muc tieu.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tao_tai_khoan.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/tao_tai_khoan.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tao_tai_khoan.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tao_tai_khoan.aspx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template.master" beforeDir="false" afterPath="$PROJECT_DIR$/template.master" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload_file.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/upload_file.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload_file.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/upload_file.aspx.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1kMct7aG62js2ZQxZDU8FcXKi77" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="505c122c-02c9-4a2b-88f7-085cab8be0d1" name="Default Changelist" comment="" />
+      <created>1605514124769</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605514124769</updated>
+      <workItem from="1605514127338" duration="139000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

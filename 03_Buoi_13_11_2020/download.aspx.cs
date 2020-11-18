@@ -12,8 +12,8 @@ public partial class download : System.Web.UI.Page
         if(!IsPostBack)
         {
             String path = Request.QueryString["file"];
-            String[] fileNameArray = path.Split('/');
-            string filename = fileNameArray[1];
+            string filename = path;
+            path = "file/" + path;
             Response.ContentType = "application/octet-stream";
             Response.AppendHeader("Content-Disposition", "attachment;filename=" + filename);
             Response.TransmitFile(Server.MapPath(path));

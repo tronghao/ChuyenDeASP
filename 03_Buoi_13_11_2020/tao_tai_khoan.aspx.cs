@@ -76,7 +76,8 @@ public partial class tao_tai_khoan : System.Web.UI.Page
     {
         String tenTaiKhoan = txtTenTaiKhoan.Text;
         String matKhau = txtMatKhau.Text;
-        String sql = "insert into tbl_nguoi_dung(ten_tai_khoan, mat_khau) values('" + tenTaiKhoan + "', '" + connect.mahoa(matKhau) + "')";
+        String gioi_tinh = ddl.SelectedValue;
+        String sql = "insert into tbl_nguoi_dung(ten_tai_khoan, mat_khau, gioi_tinh) values('" + tenTaiKhoan + "', '" + connect.mahoa(matKhau) + "', N'"+ gioi_tinh +"')";
         //Response.Write(sql);
         if (connect.CapnhatCSDL(sql))
         {
@@ -85,6 +86,7 @@ public partial class tao_tai_khoan : System.Web.UI.Page
             txtMatKhau.Text = "";
         }
         else Response.Write("<script> alert('Thêm không thành công') </script>");
+        hienThiDuLieu();
     }
 
 

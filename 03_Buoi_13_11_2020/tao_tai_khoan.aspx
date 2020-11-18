@@ -44,11 +44,21 @@
     </tr>
     <tr>
         <td class="auto-style4">Tên tài khoản: </td>
-        <td class="auto-style3"> <asp:TextBox ID="txtTenTaiKhoan" runat="server" style="margin-left: 0px"></asp:TextBox> </td>
+        <td class="auto-style3"> <asp:TextBox ID="txtTenTaiKhoan" runat="server" CssClass="form-control" style="margin-left: 0px"></asp:TextBox> </td>
     </tr>
     <tr>
         <td class="auto-style4">Mật khẩu: </td>
-        <td class="auto-style3"> <asp:TextBox ID="txtMatKhau" runat="server"></asp:TextBox> </td>
+        <td class="auto-style3"> <asp:TextBox ID="txtMatKhau" runat="server" CssClass="form-control"></asp:TextBox> </td>
+    </tr>
+    <tr>
+        <td class="auto-style4">Giới tính: </td>
+        <td class="auto-style3"> 
+            <asp:DropDownList ID="ddl" runat="server" CssClass="form-control">
+                <asp:ListItem Text="Nam" Value="Nam"></asp:ListItem>
+                <asp:ListItem Text="Nữ" Value="Nữ"></asp:ListItem>
+            </asp:DropDownList> 
+
+        </td>
     </tr>
     <tr>
         <td class="auto-style4">
