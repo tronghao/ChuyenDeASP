@@ -207,24 +207,107 @@ public partial class upload_file : System.Web.UI.Page
     protected void btnImport_Click(object sender, EventArgs e)
     {
         // CHECK IF A FILE HAS BEEN SELECTED.
-        //if ((excelUpload.HasFile))
+        if ((excelUpload.HasFile))
+        {
+            if (!Convert.IsDBNull(excelUpload.PostedFile) &
+            excelUpload.PostedFile.ContentLength > 0)
+            {
+
+                //FIRST, SAVE THE SELECTED FILE IN THE ROOT DIRECTORY.
+                excelUpload.SaveAs(Server.MapPath(".") + "\\excel\\" + excelUpload.FileName);
+
+                SqlBulkCopy oSqlBulk = null;
+
+                // SET A CONNECTION WITH THE EXCEL FILE.
+                string path = Server.MapPath(".") + "\\excel\\" + excelUpload.FileName;
+                string Extension = System.IO.Path.GetExtension(excelUpload.PostedFile.FileName);
+                string connStr = "";
+                if (Extension == ".XLS" || Extension == ".XLSX" || Extension == ".xls" || Extension == ".xlsx")
+                {
+
+                    switch (Extension)
+                    {
+                        case ".xls": //Excel 97-03
+                            connStr = "Provider=Microsoft.ACE.OLEDB.4.0;Data Source=" + path + ";Extended Properties=Excel 8.0;";
+                            break;
+
+                        case ".xlsx": //Excel 07
+                            connStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties=Excel 8.0;";
+                            break;
+                    }
+                }
+
+                OleDbConnection myExcelConn = new OleDbConnection(connStr);
+                try
+                {
+                    myExcelConn.Open();
+                    string sql = "SELECT * FROM [Sheet1$]";
+                    using (OleDbDataAdapter adaptor = new OleDbDataAdapter(sql, myExcelConn))
+                    {
+                        DataTable ds = new DataTable();
+                        adaptor.Fill(ds);
+                        GridView1.DataSource = ds;
+                        GridView1.DataBind();
+                        for (int i = 1; i < ds.Rows.Count; i++)
+                        {
+                            string sql2 = "insert into file_upload(file_name) values('" + ds.Rows[i][0] + "')";
+                            connect.CapnhatCSDL(sql2);
+                        }
+                    }
+
+                    Response.Write("<script>alert('DATA IMPORTED SUCCESSFULLY.')</script>");
+                }
+                catch (Exception ex)
+                {
+
+                    Response.Write("<script>alert('" + ex.Message + "')</script>");
+
+
+                }
+                finally
+                {
+                    // CLEAR.
+                    //oSqlBulk.Close();
+                    oSqlBulk = null;
+                    //myExcelConn.Close();
+                    myExcelConn = null;
+                }
+            }
+        }
+
+
+        //if (excelUpload.HasFile)
         //{
-        //    if (!Convert.IsDBNull(excelUpload.PostedFile) &
-        //    excelUpload.PostedFile.ContentLength > 0)
+        //    if (excelUpload.FileContent.Length > 0)
         //    {
+        //        string Foldername;
+        //        string Extension = System.IO.Path.GetExtension(excelUpload.PostedFile.FileName);
+        //        string filename = Path.GetFileName(excelUpload.PostedFile.FileName.ToString());
 
-        //        //FIRST, SAVE THE SELECTED FILE IN THE ROOT DIRECTORY.
-        //        excelUpload.SaveAs(Server.MapPath(".") + "\\excel\\" + excelUpload.FileName);
 
-        //        SqlBulkCopy oSqlBulk = null;
-
-        //        // SET A CONNECTION WITH THE EXCEL FILE.
-        //        string path = Server.MapPath(".") + "\\excel\\" + excelUpload.FileName;
-        //        string connStr = "Provider=Microsoft.ACE.OLEDB.4.0;Data Source=" + path + ";Extended Properties=Excel 8.0;";
-        //        OleDbConnection myExcelConn = new OleDbConnection(connStr);
-        //        try
+        //        if (Extension == ".XLS" || Extension == ".XLSX" || Extension == ".xls" || Extension == ".xlsx")
         //        {
-        //            myExcelConn.Open();
+
+        //            Foldername = Server.MapPath("~/excel");
+
+        //            excelUpload.PostedFile.SaveAs(Foldername + "//" +  filename.ToString());
+
+        //            String conStr = "";
+        //            switch (Extension)
+        //            {
+        //                case ".xls": //Excel 97-03
+        //                    conStr = "Provider=Microsoft.Jet.OLEDB.4.0;" +
+        //                    "Data Source=" + Foldername + "//" + filename + ";" +
+        //                    "Extended Properties=Excel 8.0;";
+        //                    break;
+
+        //                case ".xlsx": //Excel 07
+        //                    conStr = "Provider=Microsoft.ACE.OLEDB.12.0;" +
+        //                   "Data Source=" + Foldername + "//" + filename + ";" +
+        //                   "Extended Properties=Excel 8.0;";
+        //                    break;
+        //            }
+
         //            string sql = "SELECT * FROM [Sheet1$]";
         //            using (OleDbDataAdapter adaptor = new OleDbDataAdapter(sql, myExcelConn))
         //            {
@@ -232,93 +315,51 @@ public partial class upload_file : System.Web.UI.Page
         //                adaptor.Fill(ds);
         //                GridView1.DataSource = adaptor;
         //                GridView1.DataBind();
-        //                for(int i=1; i<ds.Rows.Count; i++)
-        //                {
-        //                    String sql2 = "insert into file_upload(file_name) values('" + ds.Rows[i][0] + "')";
-        //                    connect.CapnhatCSDL(sql2);
-        //                }
+        //                //for (int i = 1; i < ds.Rows.Count; i++)
+        //                //{
+        //                //    String sql2 = "insert into file_upload(file_name) values('" + ds.Rows[i][0] + "')";
+        //                //    connect.CapnhatCSDL(sql2);
+        //                //}
         //            }
 
         //            Response.Write("<script>alert('DATA IMPORTED SUCCESSFULLY.')</script>");
+
+        //            //OleDbConnection oconn = new OleDbConnection(conStr);
+        //            ////------
+        //            //OleDbCommand ocmd = new OleDbCommand("select * from [Sheet1$]", oconn);
+        //            //oconn.Open();
+        //            //OleDbDataReader odr = ocmd.ExecuteReader();
+        //            //string Description1 = "";
+        //            //string Quantity1 = "";
+        //            //string OriginalPrice1 = "";
+        //            //string Image1 = "";
+        //            //string Shape; string Carat; string Certificate;
+        //            //while (odr.Read())
+        //            //{
+        //            //    DataTable ds = new DataTable();
+        //            //    odr.fill(ds);
+        //            //    gridview1.datasource = adaptor;
+        //            //    gridview1.databind();
+        //            //    //for (int i = 1; i < ds.rows.count; i++)
+        //            //    //{
+        //            //    //    string sql2 = "insert into file_upload(file_name) values('" + ds.rows[i][0] + "')";
+        //            //    //    connect.capnhatcsdl(sql2);
+        //            //    //}
+                        
+        //            //}
+
         //        }
-        //        catch (Exception ex)
+        //        else
         //        {
-
-        //            Response.Write("<script>alert('"+ ex.Message + "')</script>");
-
-
-        //        }
-        //        finally
-        //        {
-        //            // CLEAR.
-        //            //oSqlBulk.Close();
-        //            oSqlBulk = null;
-        //            //myExcelConn.Close();
-        //            myExcelConn = null;
+        //            Response.Write( "Select only Excel File ....!!" );
         //        }
         //    }
         //}
-        if (excelUpload.HasFile)
-        {
-            if (excelUpload.FileContent.Length > 0)
-            {
-                string Foldername;
-                string Extension = System.IO.Path.GetExtension(excelUpload.PostedFile.FileName);
-                string filename = Path.GetFileName(excelUpload.PostedFile.FileName.ToString());
+        //else
+        //{
+        //    Response.Write("Upload Excel File ......");
 
-
-                if (Extension == ".XLS" || Extension == ".XLSX" || Extension == ".xls" || Extension == ".xlsx")
-                {
-
-                    Foldername = Server.MapPath("~/excel");
-
-                    excelUpload.PostedFile.SaveAs(Foldername + "//" +  filename.ToString());
-
-                    String conStr = "";
-                    switch (Extension)
-                    {
-                        case ".xls": //Excel 97-03
-                            conStr = "Provider=Microsoft.Jet.OLEDB.4.0;" +
-                            "Data Source=" + Foldername + "//" + filename + ";" +
-                            "Extended Properties=Excel 8.0;";
-                            break;
-
-                        case ".xlsx": //Excel 07
-                            conStr = "Provider=Microsoft.ACE.OLEDB.12.0;" +
-                           "Data Source=" + Foldername + "//" + filename + ";" +
-                           "Extended Properties=Excel 8.0;";
-                            break;
-                    }
-
-                    OleDbConnection oconn = new OleDbConnection(conStr);
-                    //------
-                    OleDbCommand ocmd = new OleDbCommand("select * from [Sheet1$]", oconn);
-                    oconn.Open();
-                    OleDbDataReader odr = ocmd.ExecuteReader();
-                    string Description1 = "";
-                    string Quantity1 = "";
-                    string OriginalPrice1 = "";
-                    string Image1 = "";
-                    string Shape; string Carat; string Certificate;
-                    while (odr.Read())
-                    {
-                        Response.Write(odr);
-
-                        // you will get row by value
-                    }
-
-                }
-                else
-                {
-                    Response.Write( "Select only Excel File ....!!" );
-                }
-            }
-        }
-        else
-        {
-            Response.Write("Upload Excel File ......");
-
-        }
+        //}
     }
 
 }
