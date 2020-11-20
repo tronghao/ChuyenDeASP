@@ -75,7 +75,7 @@ public partial class tao_tai_khoan : System.Web.UI.Page
     {
         String tenTaiKhoan = txtTenTaiKhoan.Text;
         String matKhau = txtMatKhau.Text;
-        String sql = "insert into tbl_nguoi_dung(ten_tai_khoan, mat_khau) values('" + tenTaiKhoan + "', '" + matKhau + "')";
+        String sql = "insert into tbl_nguoi_dung(ten_tai_khoan, mat_khau) values(N'" + tenTaiKhoan + "', '" + matKhau + "')";
         //Response.Write(sql);
         if (connect.CapnhatCSDL(sql))
         {

@@ -15,7 +15,8 @@ public class KN_CSDL
     public KN_CSDL()
     {
         sqlketnoi = new SqlConnection();
-        string chuoiketnoi = "Data Source=.;Initial Catalog=BD_LAI_XE_A1;Integrated Security=True";
+        //string chuoiketnoi = "Data Source=.;Initial Catalog=BD_LAI_XE_A1;Integrated Security=True";
+        string chuoiketnoi = @"Data Source=TRONGHAO-PC\SQLEXPRESS;Initial Catalog=BD_LAI_XE_A1;Integrated Security=True";
         sqlketnoi.ConnectionString = chuoiketnoi;
         sqllenh = new SqlCommand();
     }
@@ -69,5 +70,10 @@ public class KN_CSDL
         bodocghi.Fill(bang);
         this.Dongketnoi();
         return bang;
+    }
+
+    public string mahoa(string pass)
+    {
+        return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(pass.Trim(), "SHA1");
     }
 }
