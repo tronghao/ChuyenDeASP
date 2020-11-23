@@ -214,12 +214,12 @@ public partial class upload_file : System.Web.UI.Page
             {
 
                 //FIRST, SAVE THE SELECTED FILE IN THE ROOT DIRECTORY.
-                excelUpload.SaveAs(Server.MapPath(".") + "\\excel\\" + excelUpload.FileName);
+                excelUpload.SaveAs(Server.MapPath(".") + "\\excel\\" + DateTime.Now.ToString("ddMMyyyy_hhmmss_tt_") + excelUpload.FileName);
 
                 SqlBulkCopy oSqlBulk = null;
 
                 // SET A CONNECTION WITH THE EXCEL FILE.
-                string path = Server.MapPath(".") + "\\excel\\" + excelUpload.FileName;
+                string path = Server.MapPath(".") + "\\excel\\" + DateTime.Now.ToString("ddMMyyyy_hhmmss_tt_") + excelUpload.FileName;
                 string Extension = System.IO.Path.GetExtension(excelUpload.PostedFile.FileName);
                 string connStr = "";
                 if (Extension == ".XLS" || Extension == ".XLSX" || Extension == ".xls" || Extension == ".xlsx")
@@ -246,8 +246,7 @@ public partial class upload_file : System.Web.UI.Page
                     {
                         DataTable ds = new DataTable();
                         adaptor.Fill(ds);
-                        GridView1.DataSource = ds;
-                        GridView1.DataBind();
+
                         for (int i = 1; i < ds.Rows.Count; i++)
                         {
                             string sql2 = "insert into file_upload(file_name) values('" + ds.Rows[i][0] + "')";
@@ -275,6 +274,7 @@ public partial class upload_file : System.Web.UI.Page
             }
         }
 
+        hienThiDuLieu();
 
         //if (excelUpload.HasFile)
         //{
