@@ -28,7 +28,7 @@ public partial class login2 : System.Web.UI.Page
         {
             Session["user"] = username;
             Session["quyen"] = true;
-            //Response.Redirect("Default.aspx");
+            Response.Redirect("admin/index.aspx");
         }
         else Response.Write("<script>alert('Tên đăng nhập hoặc mật khẩu không đúng')</script>");
 

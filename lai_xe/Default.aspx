@@ -34,18 +34,11 @@
 			            <h4><strong class="text-success">BỘ ĐỀ THI BẰNG LÁI XE MÁY A1 2020</strong></h4>
 			
 			            <div class="text-primary">
-				            <strong>Bộ 8 đề thi chuẩn Bộ Giao Thông Vận Tải</strong>
+				            <strong><asp:Label ID="lb_de_thi" runat="server" Text=""></asp:Label></strong>
 			            </div>
 
 			            <div class="">
-				            <button type="submit" class="btn btn-success btn-thongtin" name="chondethi" value="de01">Đề 01</button>
-				            <button type="submit" class="btn btn-success btn-thongtin" name="chondethi" value="de02">Đề 02</button>
-				            <button type="submit" class="btn btn-success btn-thongtin" name="chondethi" value="de03">Đề 03</button>
-				            <button type="submit" class="btn btn-success btn-thongtin" name="chondethi" value="de04">Đề 04</button>
-				            <button type="submit" class="btn btn-success btn-thongtin" name="chondethi" value="de05">Đề 05</button>
-				            <button type="submit" class="btn btn-success btn-thongtin" name="chondethi" value="de06">Đề 06</button>
-				            <button type="submit" class="btn btn-success btn-thongtin" name="chondethi" value="de07">Đề 07</button>
-				            <button type="submit" class="btn btn-success btn-thongtin" name="chondethi" value="de08">Đề 08</button>
+                            <asp:Literal ID="ltrDe" runat="server"></asp:Literal>    
 			            </div>
 			
 			            <div class="text-primary">
@@ -99,6 +92,10 @@
         .title-luyen-thi{
             color: #28a745; 
             font-weight: bold
+        }
+
+        button.btn.btn-success.btn-thongtin {
+            margin-right: 5px;
         }
     </style>
 </asp:Content>
