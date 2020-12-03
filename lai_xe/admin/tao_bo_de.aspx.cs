@@ -14,30 +14,37 @@ public partial class tao_bo_de : System.Web.UI.Page
     {
         if(!IsPostBack)
         {
-            if(Request.QueryString["id"] != null) {
-                string id = Request.QueryString["id"];
-                delete_items(id);
-            }
-            if (Request.QueryString["info"] != null)
-            {
-                string info = Request.QueryString["info"];
-                if (info == "1")
-                    Response.Write("<script> alert('Cập nhật thành công') </script>");
-                else Response.Write("<script> alert('Cập nhật không thành công') </script>");
-                
-            }
-            
-            if (Request.QueryString["id_sua"] != null)
-            {
-                string id = Request.QueryString["id_sua"];
-                capNhat();
-                hienThiDuLieuCapNhat(id);
-            }
+
+            if (Session["user"] == null)
+                Response.Redirect("../Default.aspx");
             else
             {
-                tao();
-                hienThiDuLieu();
-            }   
+                if (Request.QueryString["id"] != null)
+                {
+                    string id = Request.QueryString["id"];
+                    delete_items(id);
+                }
+                if (Request.QueryString["info"] != null)
+                {
+                    string info = Request.QueryString["info"];
+                    if (info == "1")
+                        Response.Write("<script> alert('Cập nhật thành công') </script>");
+                    else Response.Write("<script> alert('Cập nhật không thành công') </script>");
+
+                }
+
+                if (Request.QueryString["id_sua"] != null)
+                {
+                    string id = Request.QueryString["id_sua"];
+                    capNhat();
+                    hienThiDuLieuCapNhat(id);
+                }
+                else
+                {
+                    tao();
+                    hienThiDuLieu();
+                }
+            }
         }
         
     }
@@ -77,7 +84,7 @@ public partial class tao_bo_de : System.Web.UI.Page
             ltr_table.Text += @"<tr>
                                     <td class='text-center'> " + (i + 1).ToString() + @" </td>  
                                     <td> " + nguoidung_table.Rows[i][1] + @" </td>  
-                                    <td> <a href='?id_sua=" + nguoidung_table.Rows[i][0] + @"'>Sửa</a> | <a href='?id=" + nguoidung_table.Rows[i][0] + @"'>Xóa</a> | <a href='them_de_thi.aspx?id=" + nguoidung_table.Rows[i][0] + @"'>Quản lý câu hỏi</a> </td>  
+                                    <td> <a href='?id_sua=" + nguoidung_table.Rows[i][0] + @"'><i class='fa fa-pencil-square' style='color:blue' aria-hidden='true'></i></a> | <a href='?id=" + nguoidung_table.Rows[i][0] + @"'><i class='fa fa-trash' aria-hidden='true' style='color:red'></i></a> | <a href='them_de_thi.aspx?id=" + nguoidung_table.Rows[i][0] + @"' style='color:blue'>Quản lý câu hỏi</a> </td>  
                                 </tr>
                           ";
         }

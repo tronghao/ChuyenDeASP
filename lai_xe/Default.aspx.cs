@@ -32,7 +32,10 @@ public partial class _Default : System.Web.UI.Page
         ltrDe.Text = "";
         for (int i = 0; i < dt_bo_de.Rows.Count; i++)
         {
-            ltrDe.Text += "<a href='thi.aspx?bd=" + dt_bo_de.Rows[i][0] + "'><button class='btn btn-success btn-thongtin'>" + dt_bo_de.Rows[i][1] + "</button></a>";
+            ltrDe.Text += "<a href='thi.aspx?bd=" + dt_bo_de.Rows[i][0] + "' runat='server'><button type='button' class='btn btn-success btn-thongtin'>" + dt_bo_de.Rows[i][1] + "</button></a>";
         }
+        Repeater1.DataSource = dt_bo_de;
+        Repeater1.DataBind();
     }
+
 }

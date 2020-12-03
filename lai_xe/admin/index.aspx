@@ -5,6 +5,37 @@
     Quản trị lái xe A1
 </asp:Content>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="title_bar" Runat="Server">
+    Dashboard
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="nav" Runat="Server">
+    <li class="nav-item active">
+        <a class="nav-link" href="index.aspx">
+            <i class="nc-icon nc-chart-pie-35" aria-hidden="true"></i>
+            <p>Dashboard</p>
+        </a>
+    </li>
+    <li>
+        <a class="nav-link" href="tao_tai_khoan.aspx">
+            <i class="fa fa-user-o" aria-hidden="true"></i>
+            <p>Tài khoản</p>
+        </a>
+    </li>
+    <li>
+        <a class="nav-link" href="tao_bo_de.aspx">
+            <i class="nc-icon nc-paper-2"></i>
+            <p>Bộ đề</p>
+        </a>
+    </li>
+    <li>
+        <a class="nav-link" href="tao_cau_hoi.aspx">
+            <i class="nc-icon nc-notes"></i>
+            <p>Câu hỏi</p>
+        </a>
+    </li>
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <div class="row">
         <div class="col-md-4">

@@ -13,18 +13,31 @@ public partial class admin_them_de_thi : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            if (Request.QueryString["id"] != null)
+            if (Session["user"] == null)
+                Response.Redirect("../Default.aspx");
+            else
             {
-                string id = Request.QueryString["id"];
-                hienThiDuLieu(id);
+                if (Request.QueryString["id"] != null)
+                {
+                    string id = Request.QueryString["id"];
+                    hienThiDuLieu(id);
+                }
+
+                if (Request.QueryString["ids"] != null)
+                {
+                    string id = Request.QueryString["ids"];
+                    addCSDL(id);
+                }
             }
-           
         }
     }
 
     public void hienThiDuLieu(String id)
     {
-        String sql = "select ch.ma_cau_hoi, ch.noi_dung from tbl_cau_hoi as ch left join (select * from tbl_de_thi where ma_bo_de=" + Request.QueryString["id"] + ") as dt on ch.ma_cau_hoi != dt.ma_cau_hoi ";
+        String sql = @"select ch.ma_cau_hoi, ch.noi_dung 
+                        from tbl_cau_hoi as ch 
+                        where ch.ma_cau_hoi not in 
+                        (select ma_cau_hoi from tbl_de_thi where ma_bo_de=" + Request.QueryString["id"] + ")";
         DataTable dt = new DataTable();
         dt = connect.LayBang(sql);
 
@@ -40,5 +53,35 @@ public partial class admin_them_de_thi : System.Web.UI.Page
         {
             ltr_bode.Text += "<div class='item'>" + dt.Rows[i][0].ToString() + ") " + dt.Rows[i][1].ToString() + "</div>";
         }
+    }
+
+    public void addCSDL(String id)
+    {
+        String[] arrSplitId = id.Split(',');
+        String idBD = Request.QueryString["idBD"];
+        
+        //delete all item BD
+        String sql_delete = "delete from tbl_de_thi where ma_bo_de = '" + idBD + "'";
+        connect.CapnhatCSDL(sql_delete);
+        String success = "true";
+        //add list item;
+        for (int i = 0; i < arrSplitId.Length - 1; i++)
+        {
+            String sql = "insert into tbl_de_thi(ma_bo_de, ma_cau_hoi) values('" + idBD + "', '" + arrSplitId[i] + "')";
+            if (connect.CapnhatCSDL(sql))
+            {
+                success = "true";
+            }
+            else
+            {
+                success = "false";
+            }
+        }
+
+        string json = "{\"success\": \"" + success + "\", \"idBD\": \"" + idBD + "\"}";
+        Response.Clear();
+        Response.ContentType = "application/json; charset=utf-8";
+        Response.Write(json);
+        Response.End();
     }
 }

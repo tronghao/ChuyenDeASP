@@ -4,6 +4,37 @@
     Quản lý đề thi
 </asp:Content>
 
+<asp:Content ID="Content5" ContentPlaceHolderID="title_bar" Runat="Server">
+    Quản lý đề thi
+</asp:Content>
+
+<asp:Content ID="Content6" ContentPlaceHolderID="nav" Runat="Server">
+    <li>
+        <a class="nav-link" href="index.aspx">
+            <i class="nc-icon nc-chart-pie-35" aria-hidden="true"></i>
+            <p>Dashboard</p>
+        </a>
+    </li>
+    <li>
+        <a class="nav-link" href="tao_tai_khoan.aspx">
+            <i class="fa fa-user-o" aria-hidden="true"></i>
+            <p>Tài khoản</p>
+        </a>
+    </li>
+    <li>
+        <a class="nav-link" href="tao_bo_de.aspx">
+            <i class="nc-icon nc-paper-2"></i>
+            <p>Bộ đề</p>
+        </a>
+    </li>
+    <li>
+        <a class="nav-link" href="tao_cau_hoi.aspx">
+            <i class="nc-icon nc-notes"></i>
+            <p>Câu hỏi</p>
+        </a>
+    </li>
+</asp:Content>
+
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css" rel="stylesheet" />
@@ -59,11 +90,46 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" Runat="Server">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js"></script>
     <script>
-        dragula([document.querySelector('#left'), document.querySelector('#right')], {
+        var drake = dragula([document.querySelector('#left'), document.querySelector('#right')], {
             accepts: function (el, target, source, sibling) {
                 return true;
             },
         });
+
+
+        drake.on('dragend', function (el) {
+            let url = document.URL;
+            let urlSplit = url.split("?id=");
+            
+            let idBoDe = urlSplit[1];
+            console.log(idBoDe);
+            let containerRight = drake.containers[1].childNodes;
+            let ids = "";
+            containerRight.forEach( (item) => { 
+                if(item.className == "item") {
+                    let text = item.innerHTML;
+                    let arrSplitText = text.split(")");
+                    console.log(arrSplitText);
+                    ids += arrSplitText[0] + ",";
+                }
+            });
+            console.log(ids);
+            $.ajax({
+                type: 'get',  //chỉnh phương thức cho phù hợp
+                url: 'http://localhost:1439/admin/them_de_thi.aspx?ids='+ ids + '&idBD=' + idBoDe, //Link tới Route cần lấy dữ liệu
+                success:function(data){
+                    if(data.success == "false")
+                        alert("Lỗi API");
+                }
+            });
+            //let containerRight = drake.containers[1].childNodes;
+            //containerRight.forEach( (item) => { 
+            //    if(item.className == "item") 
+            //        //console.log(item.innerHTML); 
+            //});
+        });
+
+        
     </script>
 </asp:Content>
 

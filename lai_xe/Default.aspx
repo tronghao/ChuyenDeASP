@@ -36,17 +36,28 @@
 			            <div class="text-primary">
 				            <strong><asp:Label ID="lb_de_thi" runat="server" Text=""></asp:Label></strong>
 			            </div>
-
+                        
 			            <div class="">
                             <asp:Literal ID="ltrDe" runat="server"></asp:Literal>    
 			            </div>
-			
-			            <div class="text-primary">
+
+                        <div class="">
+                            <asp:Repeater ID="Repeater1" runat="server">
+                                <ItemTemplate>
+                                    <%--<a href='thi.aspx?bd='>
+                                        <asp:Button ID="Button1<%# Eval("ten_bo_de") %>" runat="server" Text="<%# Eval("ten_bo_de") %>" OnClick="redirect(<%# Eval("ma_bo_de") %>)"/>
+                                    </a>--%>
+                                </ItemTemplate>
+                            </asp:Repeater>
+			            </div>
+
+			            <%--<div class="text-primary">
 				            <strong>20 câu hỏi các tình huống giao thông nghiêm trọng:</strong>
+
 			            </div>
 			            <div class="">
 				            <button type="submit" class="btn btn-success btn-thongtin" name="chondethi" value="de00">20 câu điểm liệt</button>
-			            </div>
+			            </div>--%>
 		            </div>
                 </div>
                 <div>

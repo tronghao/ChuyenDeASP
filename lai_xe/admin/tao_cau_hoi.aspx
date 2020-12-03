@@ -3,7 +3,38 @@
 
 
 <asp:Content ID="Content4" ContentPlaceHolderID="title" Runat="Server">
-    Quản trị Tài Khoản
+   Quản trị câu hỏi
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="title_bar" Runat="Server">
+   Quản trị câu hỏi
+</asp:Content>
+
+<asp:Content ID="Content6" ContentPlaceHolderID="nav" Runat="Server">
+    <li>
+        <a class="nav-link" href="index.aspx">
+            <i class="nc-icon nc-chart-pie-35" aria-hidden="true"></i>
+            <p>Dashboard</p>
+        </a>
+    </li>
+    <li>
+        <a class="nav-link" href="tao_tai_khoan.aspx">
+            <i class="fa fa-user-o" aria-hidden="true"></i>
+            <p>Tài khoản</p>
+        </a>
+    </li>
+    <li>
+        <a class="nav-link" href="tao_bo_de.aspx">
+            <i class="nc-icon nc-paper-2"></i>
+            <p>Bộ đề</p>
+        </a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="tao_cau_hoi.aspx">
+            <i class="nc-icon nc-notes"></i>
+            <p>Câu hỏi</p>
+        </a>
+    </li>
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">

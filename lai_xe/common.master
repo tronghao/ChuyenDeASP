@@ -46,7 +46,7 @@
                     <div class="nav-custom">
                         <img src="./img/logo.png" width="200" height="50"/>
                         <ul class="nav-ul">
-                            <%--<li>Trang chủ</li>--%>
+                            <li><a href="/">Trang chủ</a></li>
                             <li><a href="login.aspx">Đăng nhập</a></li>
                         </ul>
                         
