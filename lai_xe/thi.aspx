@@ -92,6 +92,11 @@
             font-weight:bold;
             color: #fff;
         }
+
+        #kq {
+            color: #fff;
+            font-weight: bold;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -135,7 +140,9 @@
             <div class="ket-thuc-bai-thi">
                 <button id="btn-ket-thuc" type="button" class="btn btn-primary" onclick="ketThucBaiThi()">KẾT THÚC BÀI THI</button>
                 <span id="ket-thuc"></span>
+                <div id="kq"></div>
             </div>
+            
         </div>
         <div class="col-md-8">
             <div class="nd-cau-hoi">
@@ -210,7 +217,7 @@
             let urlSplit = url.split("?bd=");
 
             let idBoDe = urlSplit[1];
-            console.log(arr);
+            //console.log(arr);
             $.ajax({
                 type: 'post',  //chỉnh phương thức cho phù hợp
                 url: 'http://localhost:1439/cham_thi.aspx?bd=' + idBoDe, //Link tới Route cần lấy dữ liệu
@@ -233,6 +240,12 @@
                         if(data.data[i].correct == "Y")
                             btnCauHoi.className = "btn btn btn-success btn-item-number";
                         else btnCauHoi.className = "btn btn btn-danger btn-item-number";
+                    }
+
+                    let kq = document.getElementById("kq");
+                    kq.innerHTML = "</br>Đáp án các câu sai:</br>";
+                    for (let i = 0; i < data.kq.length; i++) {
+                        kq.innerHTML += "Câu " + data.kq[i].cauHoi + ": " + data.kq[i].correct + "</br>";
                     }
                 }
             });

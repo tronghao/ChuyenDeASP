@@ -48,7 +48,7 @@ public partial class thi : System.Web.UI.Page
                 ltrBtnCauHoi.Text += "<button onclick='JumpToSlide(" + (i + 1) + ")' type='button' id='btnCauHoi" + (i + 1).ToString() + "' class='btn btn-success btn-item-number'>" + (i + 1).ToString() + "</button>";
             }
 
-            if (i == dt.Rows.Count - 1)
+            if (i == dt.Rows.Count - 1 && i % 5 != 4)
             {
                 ltrBtnCauHoi.Text += "</div>";
             }

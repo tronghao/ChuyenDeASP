@@ -56,13 +56,15 @@
             background-color: #f7f7f8;
             margin-bottom: 10px;
         }
+
+        .jc-center { justify-content:center; }
     </style>
 </asp:Content>
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="content" Runat="Server">
-    <div class="row">
-        <div class="col-md-4 offset-2 col-md-4-custom card">
+    <div class="row jc-center">
+        <div class="col-md-4 col-md-4-custom card">
             <div class="card-header bg-primary text-center color-white">Câu hỏi</div>
             <div class="card-body">
                 <div id="left" class="container">

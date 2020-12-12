@@ -62,6 +62,19 @@ public partial class chamThi : System.Web.UI.Page
             }
         }
 
+        Data[] arrResValue = new Data[1000];
+        int lengthArrResValue = 0;
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            if (dt.Rows[i][0].ToString() != arr[i].value)
+            {
+                arrResValue[lengthArrResValue] = new Data();
+                arrResValue[lengthArrResValue].key = (i + 1).ToString();
+                arrResValue[lengthArrResValue].value = dt.Rows[i][0].ToString();
+                lengthArrResValue++;
+            }
+        }
+
 
         string jsonData = Request.Form["data"];
         string json = "{\"data\": [";
@@ -70,6 +83,13 @@ public partial class chamThi : System.Web.UI.Page
             if(i != dt.Rows.Count -1)
                 json += "{ \"cauHoi\": \"" + arrRes[i].key + "\", \"correct\": \"" + arrRes[i].value + "\" },";
             else json += "{ \"cauHoi\": \"" + arrRes[i].key + "\", \"correct\": \"" + arrRes[i].value + "\" }";
+        }
+        json += "], \"kq\": [";
+        for (int i = 0; i < lengthArrResValue; i++)
+        {
+            if(i != lengthArrResValue -1)
+                json += "{ \"cauHoi\": \"" + arrResValue[i].key + "\", \"correct\": \"" + arrResValue[i].value + "\" },";
+            else json += "{ \"cauHoi\": \"" + arrResValue[i].key + "\", \"correct\": \"" + arrResValue[i].value + "\" }";
         }
         json+="], \"soCauDung\": \"" + soCauDung + "\"}";
 

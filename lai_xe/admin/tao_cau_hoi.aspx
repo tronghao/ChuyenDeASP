@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="../admin.master" AutoEventWireup="true" CodeFile="tao_cau_hoi.aspx.cs" Inherits="tao_cau_hoi" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="../admin.master" AutoEventWireup="true" CodeFile="tao_cau_hoi.aspx.cs" Inherits="tao_cau_hoi" ValidateRequest="false"%>
 
 
 
@@ -38,6 +38,8 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+  
     <style type="text/css">
     .auto-style4 {
         width: 20%;
@@ -75,11 +77,11 @@
         border-bottom: none;
     }
 </style>
+
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
-    
     <table class="auto-style1 table table-hover table-bordered">
     <tr>
         <td class="auto-style5" colspan="2">TẠO CÂU HỎI</td>
@@ -161,6 +163,15 @@
                 } // false to disable search (or any other option)
             });
         });
+
+
+        var editor = CKEDITOR.replace('<%=txtNoiDungCauHoi.ClientID%>');
+        editor.on('change', function (evt) {
+            // getData() returns CKEditor's HTML content.
+            document.getElementById('content_txtNoiDungCauHoi').value = evt.editor.getData();
+        });
+
+        CKEDITOR.instances.<%=txtNoiDungCauHoi.ClientID%>.setData(document.getElementById('content_txtNoiDungCauHoi').value);
     </script>
 </asp:Content>
 

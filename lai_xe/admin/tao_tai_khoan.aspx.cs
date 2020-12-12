@@ -110,6 +110,7 @@ public partial class tao_tai_khoan : System.Web.UI.Page
     {
         txtMatKhau.Text = "";
         txtTenTaiKhoan.Text = "";
+        txtHoTen.Text = "";
         txtTenTaiKhoan.ReadOnly = false;
         btnTao.Visible = true;
         btnCapNhat.Visible = false;
